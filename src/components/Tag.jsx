@@ -1,26 +1,10 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 
-const API_KEY = process.env.REACT_APP_GIPHY_KEY;
+import useGif from "../useGif";
 
 const Tag = () => {
-  const [gif, setGif] = useState("");
-  const [tag, setTag] = useState("");
-
-  const fetchGif = async (tag) => {
-    const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}&tag=${tag}`;
-    const {
-      data: { data },
-    } = await axios.get(url);
-
-    const gifSrc = data.images.downsized_large.url;
-    console.log(gifSrc);
-    setGif(gifSrc);
-  };
-
-  useEffect(() => {
-    fetchGif("dogs");
-  }, []);
+  const [tag, setTag] = useState("dogs");
+  const { gif, fetchGif } = useGif(tag);
 
   const handleTag = (e) => {
     setTag(e.target.value);
