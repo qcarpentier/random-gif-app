@@ -7,7 +7,7 @@ const Random = () => {
 
   return (
     <div className="container">
-      <h1>Random Image</h1>
+      <h1>Random Gif</h1>
       <img src={gif} alt="GIF Image" />
       <button onClick={() => fetchGif()}>Change image</button>
     </div>

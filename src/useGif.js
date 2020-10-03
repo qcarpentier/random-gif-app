@@ -10,8 +10,10 @@ const useGif = (tag) => {
   const fetchGif = async (tag) => {
     const { data } = await axios.get(tag ? `${url}&tag=${tag}` : url);
 
-    const gifSrc = data.data.images.downsized_large.url;
-    setGif(gifSrc);
+    if (data.data.images) {
+      const gifSrc = data.data.images.downsized_large.url;
+      setGif(gifSrc);
+    }
   };
 
   useEffect(() => {

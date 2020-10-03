@@ -7,7 +7,7 @@ import "./App.css";
 
 const App = () => (
   <div>
-    <h1>Hello World!</h1>
+    <h1>Random Gif Application</h1>
     <div className="main-container">
       <Random />
       <Tag />
